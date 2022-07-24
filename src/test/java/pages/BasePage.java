@@ -2,6 +2,7 @@ package pages;
 
 import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
+import org.ini4j.Ini;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
@@ -202,5 +203,23 @@ public class BasePage {
         WebDriverWait wait = new WebDriverWait(driver, sec);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
+
+
+    public static String getValue(String header, String key){
+
+        String path = System.getProperty("user.dir")+File.separator+"TestData.ini";
+        String x = null;
+        try {
+            BufferedReader fis = new BufferedReader(new FileReader(path));
+            Ini prop = new Ini();
+            prop.load(fis);
+            x  =  prop.get(header,key);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return x;
+
+    }
+
 
 }

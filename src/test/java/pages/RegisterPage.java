@@ -43,10 +43,20 @@ public class RegisterPage extends BasePage {
     WebElement continueButton;
 
 
+    @FindBy(xpath = "//a[contains(text(),'Login')]")
+    WebElement loginButton;
+
+
 
     public void navigateToRegisterPage(){
         myAccountButton.click();
         registerButton.click();
+    }
+
+
+    public void navigateToLoginPage(){
+        myAccountButton.click();
+        loginButton.click();
     }
 
     public void enterMandatoryField(String firstName, String lastName, String email, String tel, String password, String confimPass){

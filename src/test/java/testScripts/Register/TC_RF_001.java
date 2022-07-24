@@ -1,8 +1,9 @@
-package testScripts;
+package testScripts.Register;
 
 import org.testng.annotations.Test;
 import pages.BasePage;
 import pages.RegisterPage;
+import testScripts.BaseTest;
 
 public class TC_RF_001 extends BaseTest {
 
